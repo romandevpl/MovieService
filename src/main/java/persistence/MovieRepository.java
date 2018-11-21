@@ -7,7 +7,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
-import java.util.concurrent.atomic.AtomicInteger;
 
 import static persistence.MovieFilters.*;
 
@@ -53,13 +52,17 @@ public class MovieRepository {
     }
 
     public static String save(Movie movie) {
-        String result;
-//        if (movies.get(movie.getId()) != null) {
-//            result = "Updated Movie with id=" + movie.getId();
-//        } else {
-//            result = "Added Movie with id=" + movie.getId();
-//        }
         movies.add(movie);
-        return "Done";
+        return "Movie saved";
+    }
+
+    public static String update(Movie movie, int id){
+        if(getById(id).isPresent()){
+            int index = movies.indexOf(getById(id).get());
+            movies.set(index, movie);
+            return "Movie updated";
+        }else{
+            return save(movie);
+        }
     }
 }

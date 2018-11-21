@@ -7,7 +7,7 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import java.util.List;
 
-@Path("/movie/filter")
+@Path("/movies/filter")
 public class FilterMovieService {
 
     public FilterMovieService(){}

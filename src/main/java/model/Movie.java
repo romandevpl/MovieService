@@ -54,6 +54,11 @@ public class Movie {
     }
 
     @JsonProperty
+    public Genre getGenre() {
+        return genre;
+    }
+
+    @JsonProperty
     public List<String> getDirectors() {
         return directors;
     }
